@@ -19,6 +19,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'

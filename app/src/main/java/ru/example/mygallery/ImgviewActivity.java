@@ -8,6 +8,8 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 import java.util.ArrayList;
 
 public class ImgviewActivity extends AppCompatActivity {
@@ -21,8 +23,8 @@ public class ImgviewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         pathList = intent.getStringArrayExtra("pathList");
         position = intent.getIntExtra("Position", 0);
-        ImageView v = findViewById(R.id.imageView);
-        Bitmap bmImg = BitmapFactory.decodeFile(pathList[position]);
-        v.setImageBitmap(bmImg);
+
+        PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
+        photoView.setImageBitmap(BitmapFactory.decodeFile(pathList[position]));
     }
 }
