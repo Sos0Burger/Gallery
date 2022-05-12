@@ -1,6 +1,9 @@
 package ru.example.mygallery;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,10 +18,10 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private ArrayList<Cell> galleryList;
-    private Context context;
+    private Activity context;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(Context context, ArrayList<Cell> galleryList) {
+    public MyAdapter(Activity  context, ArrayList<Cell> galleryList) {
         this.context = context;
         this.galleryList = galleryList;
     }
@@ -44,7 +47,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 //TODO что-то может происходить, если кликнуть на изображение
-                Toast.makeText(context, "" + galleryList.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ImgviewActivity.class);
+                String[] pathList = new String[galleryList.size()];
+                for(int i = 0; i < galleryList.size();i++){
+                    pathList[i] = galleryList.get(i).getPath();
+                }
+
+                intent.putExtra("Position", position);
+                intent.putExtra("pathList", pathList);
+
+                context.startActivity(intent);
             }
         });
     }
