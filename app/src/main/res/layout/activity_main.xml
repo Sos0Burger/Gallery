@@ -7,8 +7,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gallery"
-        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:background="@color/cardview_dark_background"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
