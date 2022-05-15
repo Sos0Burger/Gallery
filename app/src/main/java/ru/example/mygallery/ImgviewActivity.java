@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class ImgviewActivity extends AppCompatActivity {
     int position;
     String[] pathList;
+    //принимаем интент, где указана позиця и путь к файлу и открываем его 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ public class ImgviewActivity extends AppCompatActivity {
         PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
         photoView.setImageBitmap(BitmapFactory.decodeFile(pathList[position]));
     }
+    //перелистываем вперед на фото через невидимую созданную кнопку или выводим окно с сообщением
     public void nextImg(View v){
         if (position<pathList.length-1){
             PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
@@ -38,6 +40,7 @@ public class ImgviewActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Фото больше нет", Toast.LENGTH_SHORT).show();
         }
     }
+    //перелистываем назад на фото через невидимую созданную кнопку или выводим окно с сообщением
     public void previousImg(View v){
         if (position!=0){
             PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
