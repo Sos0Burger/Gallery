@@ -47,6 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 //TODO что-то может происходить, если кликнуть на изображение
+                //создаем интаент, создаем стринг массив где будут все пути к файлам, в интент позицию суем и массив тоже
                 Intent intent = new Intent(context, ImgviewActivity.class);
                 String[] pathList = new String[galleryList.size()];
                 for(int i = 0; i < galleryList.size();i++){
